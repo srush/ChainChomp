@@ -1,7 +1,7 @@
 import os
 import subprocess
 import time
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from types import TracebackType
 from typing import TYPE_CHECKING, Any, Dict, Iterator, List, Optional, Tuple
 
@@ -309,7 +309,7 @@ class RunLog:
 @dataclass
 class PromptSnap:
     input_: Any = ""
-    run_log: RunLog = RunLog()
+    run_log: RunLog = field(default_factory=RunLog)
     output: Any = ""
 
 
